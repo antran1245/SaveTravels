@@ -29,7 +29,13 @@
 						<td>${expense.getName()}</td>
 						<td>${expense.getVendor()}</td>
 						<td><fmt:formatNumber value="${expense.getAmount()}" minIntegerDigits="2" type="currency"/></td>
-						<td><a href="/expense/edit/${expense.getId()}">edit</a></td>
+						<td class="actions-row">
+							<a href="/expense/edit/${expense.getId()}">edit</a>
+							<form action="/expense/delete/${expense.getId()}" method="post">
+								<input type="hidden" name="_method" value="delete"/>
+								<input type="submit" value="Delete" class="red-button"/>
+							</form>
+						</td>
 					</tr>
 				</c:forEach>
 			</tbody>

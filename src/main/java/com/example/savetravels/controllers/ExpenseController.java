@@ -58,4 +58,10 @@ public class ExpenseController {
 		expenseService.createExpense(editExpense);
 		return "redirect:/expense";
 	}
+	
+	@RequestMapping(value="/expense/delete/{id}", method=RequestMethod.POST)
+	public String delete(@PathVariable("id") Long id) {
+		expenseService.deleteExpense(id);
+		return "redirect:/expense";
+	}
 }
