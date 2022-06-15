@@ -26,7 +26,7 @@
 			<tbody>
 				<c:forEach var="expense" items="${expenses}">
 					<tr>
-						<td>${expense.getName()}</td>
+						<td><a href="/expense/detail/${expense.getId()}">${expense.getName()}</a></td>
 						<td>${expense.getVendor()}</td>
 						<td><fmt:formatNumber value="${expense.getAmount()}" minIntegerDigits="2" type="currency"/></td>
 						<td class="actions-row">
@@ -53,7 +53,7 @@
 			</div>
 			<div class="form-group">
 				<form:label path="amount">Amount:</form:label>
-				<form:input type="number" min="0" path="amount"/>
+				<form:input type="number" min="0" path="amount" step="0.01"/>
 				<form:errors path="amount" class="error"/>
 			</div>
 			<div class="form-group">

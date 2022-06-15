@@ -30,7 +30,7 @@
 			</div>
 			<div class="form-group">
 				<form:label path="amount">Amount:</form:label>
-				<form:input type="number" min="0" path="amount" value="${expense.getAmount()}"/>
+				<form:input type="number" min="0" path="amount" value="${expense.getAmount()}" step="0.01"/>
 				<form:errors path="amount" class="error"/>
 			</div>
 			<div class="form-group">
