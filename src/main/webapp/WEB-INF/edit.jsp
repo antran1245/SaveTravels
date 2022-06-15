@@ -8,57 +8,38 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<link rel="stylesheet" type="text/css" href="/css/style.css" />
-<title>Read Share</title>
+<link rel="stylesheet" type="text/css" href="/css/style.css"/>
+<title>Edit My Task</title>
 </head>
 <body>
 	<div class="container">
-		<h1>Save Travels</h1>
-		<table>
-			<thead>
-				<tr>
-					<th>Expense</th>
-					<th>Vendor</th>
-					<th>Amount</th>
-					<th>Actions</th>
-				</tr>
-			</thead>
-			<tbody>
-				<c:forEach var="expense" items="${expenses}">
-					<tr>
-						<td>${expense.getName()}</td>
-						<td>${expense.getVendor()}</td>
-						<td><fmt:formatNumber value="${expense.getAmount()}" minIntegerDigits="2" type="currency"/></td>
-						<td><a href="/expense/edit/${expense.getId()}">edit</a></td>
-					</tr>
-				</c:forEach>
-			</tbody>
-		</table>
-		<form:form action="/addExpense" method="post" modelAttribute="expense">
+		<div>
+			<h1>Edit Expense</h1>
+			<a href="http://localhost:8080/expense">Go Back</a>
+		</div>
+		<form:form action="/expense/edit/${expense.getId()}/edited" method="post" modelAttribute="expense">
 			<div class="form-group">
 				<form:label path="name">Expense Name: </form:label>
-				<form:input path="name"/>
+				<form:input path="name" value="${expense.getName()}"/>
 				<form:errors path="name" class="error"/>
 			</div>
 			<div class="form-group">
 				<form:label path="vendor">Vendor:</form:label>
-				<form:input path="vendor" />
+				<form:input path="vendor" value="${expense.getVendor()}"/>
 				<form:errors path="vendor" class="error"/>
 			</div>
 			<div class="form-group">
 				<form:label path="amount">Amount:</form:label>
-				<form:input type="number" min="0" path="amount"/>
+				<form:input type="number" min="0" path="amount" value="${expense.getAmount()}"/>
 				<form:errors path="amount" class="error"/>
 			</div>
 			<div class="form-group">
 				<form:label path="description">Description</form:label>
-				<form:textarea path="description" />
+				<form:textarea path="description" value="${expense.getDescription()}"/>
 				<form:errors path="description" class="error"/>
 			</div>
 			<input type="submit" value="Submit"/>
 		</form:form>
 	</div>
-	
-	
 </body>
 </html>
