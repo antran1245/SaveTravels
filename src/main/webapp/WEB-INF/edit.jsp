@@ -18,6 +18,7 @@
 			<a href="http://localhost:8080/expense">Go Back</a>
 		</div>
 		<form:form action="/expense/edit/${expense.getId()}/edited" method="post" modelAttribute="expense">
+			<input type="hidden" name="_method" value="put"/>
 			<div class="form-group">
 				<form:label path="name">Expense Name: </form:label>
 				<form:input path="name" value="${expense.getName()}"/>

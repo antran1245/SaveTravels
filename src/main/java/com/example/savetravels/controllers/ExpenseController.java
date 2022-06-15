@@ -49,7 +49,7 @@ public class ExpenseController {
 		return "edit.jsp";
 	}
 	
-	@RequestMapping(value="/expense/edit/{id}/edited", method=RequestMethod.POST)
+	@RequestMapping(value="/expense/edit/{id}/edited", method=RequestMethod.PUT)
 	public String edited(@Valid @ModelAttribute("expense") Expense expense, BindingResult result) {
 		if(result.hasErrors()) {
 			return "edit.jsp";
@@ -59,7 +59,7 @@ public class ExpenseController {
 		return "redirect:/expense";
 	}
 	
-	@RequestMapping(value="/expense/delete/{id}", method=RequestMethod.POST)
+	@RequestMapping(value="/expense/delete/{id}", method=RequestMethod.DELETE)
 	public String delete(@PathVariable("id") Long id) {
 		expenseService.deleteExpense(id);
 		return "redirect:/expense";
