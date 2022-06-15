@@ -65,7 +65,7 @@ public class ExpenseController {
 		return "redirect:/expense";
 	}
 	
-	@RequestMapping("/expense/detail/{id}")
+	@RequestMapping("/expense/{id}")
 	public String detail(@PathVariable("id") Long id, Model model) {
 		Expense expense = expenseService.findOneExpense(id);
 		model.addAttribute("expense", expense);

@@ -26,7 +26,7 @@
 			<tbody>
 				<c:forEach var="expense" items="${expenses}">
 					<tr>
-						<td><a href="/expense/detail/${expense.getId()}">${expense.getName()}</a></td>
+						<td><a href="/expense/${expense.getId()}">${expense.getName()}</a></td>
 						<td>${expense.getVendor()}</td>
 						<td><fmt:formatNumber value="${expense.getAmount()}" minIntegerDigits="2" type="currency"/></td>
 						<td class="actions-row">
